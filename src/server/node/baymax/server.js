@@ -2,7 +2,8 @@
  * Created by 46607 on 2017/3/31.
  */
 
-var server = require('express')();
+var server = require('express')(),
+    _ = require('lodash');
 
 //设置跨域访问
 server.all('*', function (req, res, next) {
@@ -15,8 +16,7 @@ server.all('*', function (req, res, next) {
 });
 
 server.get('/getDomainMap', function (req, res) {
-    res.send({
-        info: [
+    var domainList = [
             {
                 domain: 'www.baymax.com',
                 pages: [
@@ -30,7 +30,17 @@ server.get('/getDomainMap', function (req, res) {
                 domain: 'www.spiderman.com',
                 pages: []
             }
-        ]
+        ],
+        domain = req.query.domain;
+    console.log(domain);
+
+    var findOut = _.find(domainList, function (item) {
+        return item.domain === domain
+    });
+
+    res.send({
+        info: findOut,
+        status: true
     });
 });
 
