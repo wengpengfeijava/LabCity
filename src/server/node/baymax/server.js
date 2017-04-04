@@ -19,16 +19,13 @@ server.get('/getDomainMap', function (req, res) {
     var domainList = [
             {
                 domain: 'www.baymax.com',
-                pages: [
-                    {
-                        name: 'index',
-                        stateName: ''
-                    }
-                ]
+                mainJs: 'baymax',
+                mainView: 'baymax'
             },
             {
                 domain: 'www.spiderman.com',
-                pages: []
+                mainJs: 'spiderman',
+                mainView: 'spiderman'
             }
         ],
         domain = req.query.domain;
