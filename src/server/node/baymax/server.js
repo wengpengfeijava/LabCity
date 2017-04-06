@@ -19,8 +19,24 @@ server.get('/getDomainMap', function (req, res) {
     var domainList = [
             {
                 domain: 'www.baymax.com',
-                mainJs: 'baymax',
-                mainView: 'baymax'
+                mappers: [
+                    {
+                        name: 'home',
+                        source: {
+                            mainJs: 'baymax',
+                            mainView: 'baymax',
+                            mainStyle: 'baymax'
+                        }
+                    },
+                    {
+                        name: 'carts',
+                        source: {
+                            mainJs: 'spiderman',
+                            mainView: 'spiderman',
+                            mainStyle: 'spiderman'
+                        }
+                    }
+                ]
             },
             {
                 domain: 'www.spiderman.com',
@@ -30,6 +46,48 @@ server.get('/getDomainMap', function (req, res) {
         ],
         domain = req.query.domain;
     console.log(domain);
+
+    var findOut = _.find(domainList, function (item) {
+        return item.domain === domain
+    });
+
+    res.send({
+        info: findOut,
+        status: true
+    });
+});
+
+server.get('/getDomainMapArea', function (req, res) {
+    var domainList = [
+            {
+                domain: 'www.baymax.com',
+                pages: [
+                    {
+                        name: 'home',
+                        areas: [
+                            {
+                                name: 'footer',
+                                js: '',                                view: 'green',
+                                style: 'green'
+                            },
+
+                            {
+                                name: 'content',
+                                js: 'green',
+                                view: 'green',
+                                style: 'green'
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                domain: 'www.spiderman.com',
+                mainJs: 'spiderman',
+                mainView: 'spiderman'
+            }
+        ],
+        domain = req.query.domain;
 
     var findOut = _.find(domainList, function (item) {
         return item.domain === domain
