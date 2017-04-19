@@ -99,6 +99,16 @@ server.get('/getDomainMapArea', function (req, res) {
     });
 });
 
+
+server.get('/test', function (req, res) {
+
+    console.log('sdfsdfsdf');
+
+    res.jsonp({
+        status: true
+    });
+});
+
 server.listen(5100, function () {
     console.log('listen at 5100');
 });
