@@ -1074,16 +1074,16 @@ server.get('/getPlatforms', function (req, res) {
     res.send({
         info: [
             {
-                id: Date.now(),
+                id: 'www.kjjxjy.com',
                 url: 'www.kjjxjy.com',
                 name: '省会计'
             },
             {
-                id: Date.now(),
+                id: 'www.surveyor.com',
                 url: 'www.surveyor.com',
                 name: '测绘'
             }, {
-                id: Date.now(),
+                id: 'ynmd.59iedu.com',
                 url: 'ynmd.59iedu.com',
                 name: '云南民族大学'
             }
@@ -1102,7 +1102,8 @@ server.get('/getPlatformByPhone', function (req, res) {
                 phoneNumber: 15060428936,
                 userName: '翁pengfei ',
                 identify: 350181199000000000,
-                url: 'ynmd.59iedu.com',
+                url: 'http://ynmd.59iedu.com',
+                platformId: 'ynmd.59iedu.com',
                 name: '云南民族大学'
             },
             {
@@ -1110,7 +1111,8 @@ server.get('/getPlatformByPhone', function (req, res) {
                 phoneNumber: 15060428936,
                 userName: '翁pengfei ',
                 identify: 350181199000000000,
-                url: 'www.kjjxjy.com',
+                url: 'http://www.kjjxjy.com',
+                platformId: 'www.kjjxjy.com',
                 name: '省会计'
             }
         ],
