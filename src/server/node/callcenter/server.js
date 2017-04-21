@@ -6,10 +6,15 @@ var server = require('express')(),
     bodyParser = require('body-parser'),
     _ = require('lodash');
 
+var cookieParser = require('cookie-parser')
+
+server.use(cookieParser())
+
 server.use(bodyParser.urlencoded());
 //设置跨域访问
 server.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Credentials', true);
     res.header('Access-Control-Allow-Headers', 'X-Requested-With');
     res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS');
     res.header('X-Powered-By', ' 3.2.1');
@@ -1120,6 +1125,17 @@ server.get('/getPlatformByPhone', function (req, res) {
         success: true
     });
 });
+
+
+server.get('/getPPP', function (req, res) {
+    res.cookie('caoni', 'test', {httpOnly:true, domain:'*.baymax.com'});
+    res.send({
+        info: 'var a = 12313123; console.log(a);',
+        status: true,
+        success: true
+    });
+});
+
 
 server.listen(1111, function () {
     console.log('listen at 5100');
