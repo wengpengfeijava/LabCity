@@ -1088,9 +1088,9 @@ server.get('/getPlatforms', function (req, res) {
                 url: 'www.surveyor.com',
                 name: '测绘'
             }, {
-                id: 'ynmd.59iedu.com',
-                url: 'ynmd.59iedu.com',
-                name: '云南民族大学'
+                id: '2c9180e5520a5e70015214fb2849000a',
+                url: 'med.hbedu.com',
+                name: '西医综合考研培训平台'
             }
         ],
         status: true,
@@ -1107,8 +1107,8 @@ server.get('/getPlatformByPhone', function (req, res) {
                 phoneNumber: 15060428936,
                 userName: '翁pengfei ',
                 identify: 350181199000000000,
-                url: 'http://ynmd.59iedu.com',
-                platformId: 'ynmd.59iedu.com',
+                url: 'http://fjchjtest1.kjjxjy.com:1457',
+                platformId: 'fjchjtest1.kjjxjy.com:1457',
                 name: '云南民族大学'
             },
             {
