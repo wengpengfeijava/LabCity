@@ -16,9 +16,12 @@
   "devDependencies": {
     "browser-sync": "^2.18.8",
     "cookie-parser": "^1.4.3",
+    "copy-webpack-plugin": "^4.0.1",
     "express": "^4.15.2",
     "gulp": "^3.9.1",
+    "gulp-markdown": "^1.2.0",
     "lodash": "^4.17.4",
-    "mockjs": "^1.0.1-beta3"
+    "mockjs": "^1.0.1-beta3",
+    "reqeust": "^2.81.1"
   }
 }

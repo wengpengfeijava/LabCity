@@ -17,6 +17,10 @@ server.all('*', function (req, res, next) {
     next();
 });
 
+server.get('/api', function (req, res, next) {
+    res.send({info: 1})
+})
+
 server.get('/getPracticePaper', function (req, res) {
     var practices = [];
 
