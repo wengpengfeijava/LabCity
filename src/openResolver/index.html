@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+</head>
+<body>
+
+<button id="test">打开新的页面啊</button>
+<input type="text">
+</body>
+<script>
+    $(function () {
+        var test = $('#test')
+
+        var loading = 'about:blank'
+
+        // ie
+        function sol1() {
+            var popup = window.open(loading, '_blank');  //先发起弹窗（因为是用户触发，所以不会被拦截）
+            popup.document.write('<h3>加载中...</h3>')
+            $.ajax({
+                url: 'http://192.168.27.250:1616/wpf',
+                type: 'get',
+                dataType: 'jsonp',
+                data: {param1: 'value1'},
+                success: function (data) {
+                    popup.location = data.url;  //在重定向页面链接
+                }
+            })
+        }
+
+        function sol2() {
+            $.ajax({
+                url: 'http://192.168.27.250:1616/wpf',
+                type: 'get',
+                dataType: 'jsonp',
+                async: false,  // 此处必须定义为同步
+                data: {param1: 'value1'},
+                success: function (data) {
+                    window.open(data.url, '_blank');  //发起弹窗
+                }
+            })
+        }
+
+
+        function sol3() {
+            $.ajax({
+                url: 'http://192.168.27.250:1616/wpf',
+                type: 'get',
+                dataType: 'jsonp',
+                async: false,  // 此处必须定义为同步
+                data: {param1: 'value1'},
+                success: function (data) {
+                    gotourl(data.url);  //发起弹窗
+                }
+            })
+        }
+
+        /**
+         * 弹窗
+         * @param  {string} url 跳转链接
+         */
+        function gotourl(url) {
+            var a = $('<a href="' + url + '" target="_blank">链接</a>');  //生成一个临时链接对象
+            var d = a.get(0);
+            document.body.appendChild(d)
+            d.click()
+            document.body.removeChild(d)
+        }
+
+        test.on('click', function () {
+            sol1()
+        })
+    })
+</script>
+</html>

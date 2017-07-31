@@ -11,7 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.17.1"
+    "body-parser": "^1.17.1",
+    "browser-sync": "^2.18.12",
+    "jasmine": "^2.6.0",
+    "jasmine-core": "^2.6.4"
   },
   "devDependencies": {
     "browser-sync": "^2.18.8",
@@ -19,7 +22,11 @@
     "copy-webpack-plugin": "^4.0.1",
     "express": "^4.15.2",
     "gulp": "^3.9.1",
+    "gulp-inject": "^4.2.0",
     "gulp-markdown": "^1.2.0",
+    "jasmine": "^2.6.0",
+    "jasmine-core": "^2.6.4",
+    "karma": "^1.7.0",
     "lodash": "^4.17.4",
     "mockjs": "^1.0.1-beta3",
     "reqeust": "^2.81.1"

@@ -87,6 +87,13 @@ app.get('/hashed', function (req, res, next) {
     })
 })
 
+
+app.get('/tete' , function (req, res, next) {
+    res.send({
+        info: '123'
+    })
+})
+
 app.listen(1515, function () {
     console.log('listen at 1515');
 });
