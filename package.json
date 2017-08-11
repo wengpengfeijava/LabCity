@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server",
-    "init": "bower install && cnpm install "
+    "init": "bower install && cnpm install ",
+    "docs": "jsdoc src/jsDoc/example.js --configure .jsdoc.json --verbose"
   },
   "author": "",
   "license": "ISC",
@@ -14,7 +15,8 @@
     "body-parser": "^1.17.1",
     "browser-sync": "^2.18.12",
     "jasmine": "^2.6.0",
-    "jasmine-core": "^2.6.4"
+    "jasmine-core": "^2.6.4",
+    "jsdoc": "^3.5.4"
   },
   "devDependencies": {
     "browser-sync": "^2.18.8",
@@ -28,6 +30,7 @@
     "jasmine-core": "^2.6.4",
     "karma": "^1.7.0",
     "lodash": "^4.17.4",
+    "minami": "^1.2.3",
     "mockjs": "^1.0.1-beta3",
     "node-schedule": "^1.2.3",
     "reqeust": "^2.81.1"

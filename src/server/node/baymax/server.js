@@ -67,7 +67,7 @@ server.get('/getDomainMapArea', function (req, res) {
                         areas: [
                             {
                                 name: 'footer',
-                                js: '',                                view: 'green',
+                                js: '', view: 'green',
                                 style: 'green'
                             },
 
@@ -109,6 +109,22 @@ server.get('/test', function (req, res) {
     });
 });
 
+server.post('/loginTest', function (req, res) {
+
+    res.send({a: 1})
+});
+
+var english_LETTER = [],
+    english_letter = [],
+    math_number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+for (var i = 65; i < 91; i++) {
+    english_LETTER.push(String.fromCharCode(i));
+}
+
+for (var i = 97; i < 123; i++) {
+    english_letter.push(String.fromCharCode(i));
+}
 server.listen(5100, function () {
     console.log('listen at 5100');
 });
