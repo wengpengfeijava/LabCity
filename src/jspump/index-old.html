@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jsplumb.js"></script>
+
+    <script src="flower.js"></script>
+    <script src="app.js"></script>
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <style>
+        .dragActive {
+            border: 2px dotted orange;
+        }
+
+        /*当拖动一个连接点时，可连接的连接点会自动使用该css*/
+        .dropHover {
+            border: 1px dotted red;
+        }
+
+        /*当拖动一个连接点到可连接的点时，该点会自动使用该css*/
+        .item {
+            border: 3px solid black;
+            border-radius: 10px;
+            background-color: #ddddff;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+
+        .condition {
+            border: 3px solid black;
+            border-radius: 10px;
+            background-color: #ddddff;
+            margin-top: 100px;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            /*-webkit-transform: rotate(45deg);*/
+            /*-moz-transform: rotate(45deg);*/
+            /*-ms-transform: rotate(45deg);*/
+            /*-o-transform: rotate(45deg);*/
+            /*transform: rotate(-45deg);*/
+        }
+
+        #state1 {
+            left: 100px;
+            top: 100px;
+        }
+
+        #state2 {
+            left: 650px;
+            top: 100px;
+        }
+
+        #state3 {
+            left: 100px;
+            top: 250px;
+        }
+
+        #state4 {
+            left: 500px;
+            top: 350px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="workflow">
+    <div id="state1" class="item"></div>
+    <div id="state2" class="item"></div>
+    <div id="state3" class="condition"></div>
+    <div id="state4" class="item"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+{
+  "definitionId": "equateDeclareProcess",
+  "initialFlowNode": {
+    "id": "equateReportStartevent",
+    "incomingConditionMap": {},
+    "name": "提交视同申报材料",
+    "outgoingNodes": [
+      {
+        "id": "exclusivegateway1",
+        "incomingConditionMap": {
+        },
+        "name": "视同抵扣类型",
+        "outgoingNodes": [
+          {
+            "id": "departmentApprovalTask",
+            "incomingConditionMap": {
+              "exclusivegateway1": "公需课或者专业课没有行业主管"
+            },
+            "name": "单位所属人设部门审批",
+            "outgoingNodes": [
+              {
+                "id": "exclusivegateway3",
+                "incomingConditionMap": {
+                },
+                "name": "审批结果",
+                "outgoingNodes": [
+                  {
+                    "id": "endevent1",
+                    "incomingConditionMap": {
+                      "exclusivegateway2": "审批不通过重新提交申报内容",
+                      "exclusivegateway3": "审批不通过重新提交申报内容"
+                    },
+                    "name": "审批不通过重新提交申报内容",
+                    "outgoingNodes": [],
+                    "state": "NONE",
+                    "type": "END_EVENT"
+                  },
+                  {
+                    "id": "departmentApprovadTask",
+                    "incomingConditionMap": {
+                      "exclusivegateway3": "审批通过"
+                    },
+                    "name": "审批结果同步给人员以及人员所属单位",
+                    "outgoingNodes": [
+                      {
+                        "id": "endevent3",
+                        "incomingConditionMap": {
+                        },
+                        "name": "视同申报由单位所属人设部门审批结束",
+                        "outgoingNodes": [],
+                        "state": "NONE",
+                        "type": "END_EVENT"
+                      }
+                    ],
+                    "state": "NONE",
+                    "type": "SCRIPT_TASK"
+                  }
+                ],
+                "state": "NONE",
+                "type": "GATEWAY"
+              }
+            ],
+            "state": "NONE",
+            "type": "USER_TASK"
+          },
+          {
+            "id": "inchargeApprovalTask",
+            "incomingConditionMap": {
+              "exclusivegateway1": "专业课并且有行业主管"
+            },
+            "name": "单位所属地业主管审批",
+            "outgoingNodes": [
+              {
+                "id": "exclusivegateway2",
+                "incomingConditionMap": {
+                },
+                "name": "审批结果",
+                "outgoingNodes": [
+                  {
+                    "$ref": "$.initialFlowNode.outgoingNodes[0].outgoingNodes[0].outgoingNodes[0].outgoingNodes[0]"
+                  },
+                  {
+                    "id": "inchargeApprovadTask",
+                    "incomingConditionMap": {
+                      "exclusivegateway2": "单位主管审批通过"
+                    },
+                    "name": "审批借故偶同步给同级人设以及人员所属单位",
+                    "outgoingNodes": [
+                      {
+                        "id": "endevent2",
+                        "incomingConditionMap": {
+                        },
+                        "name": "视同申报由单位地业主管审批结束",
+                        "outgoingNodes": [],
+                        "state": "FINISHED",
+                        "type": "END_EVENT"
+                      }
+                    ],
+                    "state": "FINISHED",
+                    "type": "SCRIPT_TASK"
+                  }
+                ],
+                "state": "FINISHED",
+                "type": "GATEWAY"
+              }
+            ],
+            "state": "FINISHED",
+            "type": "USER_TASK"
+          }
+        ],
+        "state": "FINISHED",
+        "type": "GATEWAY"
+      }
+    ],
+    "state": "FINISHED",
+    "type": "START_EVENT"
+  },
+  "instanceId": "40289c7e5e26e92a015e26e9644e0004",
+  "name": "视同申报流程"
+}

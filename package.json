@@ -16,7 +16,8 @@
     "browser-sync": "^2.18.12",
     "jasmine": "^2.6.0",
     "jasmine-core": "^2.6.4",
-    "jsdoc": "^3.5.4"
+    "jsdoc": "^3.5.4",
+    "node-schedule": "^1.2.4"
   },
   "devDependencies": {
     "browser-sync": "^2.18.8",

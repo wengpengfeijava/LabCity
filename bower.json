@@ -36,6 +36,7 @@
   "appPath": "app",
   "moduleName": "app",
   "dependencies": {
-    "lesson-platform": "lessonPlatform#2.0.2"
+    "lesson-platform": "lessonPlatform#2.0.2",
+    "jquery-ui": "^1.12.1"
   }
 }
